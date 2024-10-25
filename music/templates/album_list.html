@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for album in albums %}
+<div>
+    <h3>
+        <a href="{% url 'album_edit' album.pk %}">{{ album.album_name }}</a>
+    </h3>
+    <p>Musician: {{ album.musician }}</p>
+    <p>Release Date: {{ album.release_date }}</p>
+    <p>Rating: {{ album.rating }}</p>
+    <a href="{% url 'album_delete' album.pk %}">Delete</a>
+</div>
+{% endfor %}
+<a href="{% url 'album_create' %}">Add Album</a>
+{% endblock %}
